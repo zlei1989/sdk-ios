@@ -7,15 +7,34 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4864BB0C1F2B7013000C533E /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4864BB0B1F2B7013000C533E /* Logger.swift */; };
-		4864BB0D1F2B70E4000C533E /* Logger.swift in Headers */ = {isa = PBXBuildFile; fileRef = 4864BB0B1F2B7013000C533E /* Logger.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		486407421F2C13F400427C0F /* ICC_SDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486407411F2C13F400427C0F /* ICC_SDK.swift */; };
+		486407431F2C52B700427C0F /* ICC_SDK.swift in Headers */ = {isa = PBXBuildFile; fileRef = 486407411F2C13F400427C0F /* ICC_SDK.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		48EBE0251F53DA9F005A355B /* ICC_AcctData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EBE0241F53DA9F005A355B /* ICC_AcctData.swift */; };
+		48EBE0261F53EE04005A355B /* ICC_AcctData.swift in Headers */ = {isa = PBXBuildFile; fileRef = 48EBE0241F53DA9F005A355B /* ICC_AcctData.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		48EBE0361F540BE5005A355B /* ICC_Callback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486407441F2C55A900427C0F /* ICC_Callback.swift */; };
+		48EBE0371F540BF1005A355B /* ICC_Callback.swift in Headers */ = {isa = PBXBuildFile; fileRef = 486407441F2C55A900427C0F /* ICC_Callback.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		48EBE0391F540CEF005A355B /* ICC_SDKCallbacks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EBE0271F540089005A355B /* ICC_SDKCallbacks.swift */; };
+		48EBE03A1F540CEF005A355B /* ICC_SDKAssistiveTouch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EBE0291F54010B005A355B /* ICC_SDKAssistiveTouch.swift */; };
+		48EBE03B1F540CEF005A355B /* ICC_SDKActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EBE02B1F5401A4005A355B /* ICC_SDKActivity.swift */; };
+		48EBE03C1F540CEF005A355B /* ICC_Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EBE02D1F540368005A355B /* ICC_Activity.swift */; };
+		48EBE03D1F540CEF005A355B /* ICC_SDKView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EBE02F1F54062C005A355B /* ICC_SDKView.swift */; };
+		48EBE03F1F540EDE005A355B /* ICC_Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EBE03E1F540EDE005A355B /* ICC_Logger.swift */; };
+		48EBE0411F541E29005A355B /* ICC_ScriptBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EBE0401F541E29005A355B /* ICC_ScriptBuilder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		486407411F2C13F400427C0F /* ICC_SDK.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ICC_SDK.swift; sourceTree = "<group>"; };
+		486407441F2C55A900427C0F /* ICC_Callback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ICC_Callback.swift; sourceTree = "<group>"; };
 		4864BB001F2B6FE5000C533E /* sdk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = sdk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4864BB031F2B6FE5000C533E /* sdk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sdk.h; sourceTree = "<group>"; };
 		4864BB041F2B6FE5000C533E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4864BB0B1F2B7013000C533E /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		48EBE0241F53DA9F005A355B /* ICC_AcctData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ICC_AcctData.swift; sourceTree = "<group>"; };
+		48EBE0271F540089005A355B /* ICC_SDKCallbacks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ICC_SDKCallbacks.swift; sourceTree = "<group>"; };
+		48EBE0291F54010B005A355B /* ICC_SDKAssistiveTouch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ICC_SDKAssistiveTouch.swift; sourceTree = "<group>"; };
+		48EBE02B1F5401A4005A355B /* ICC_SDKActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ICC_SDKActivity.swift; sourceTree = "<group>"; };
+		48EBE02D1F540368005A355B /* ICC_Activity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ICC_Activity.swift; sourceTree = "<group>"; };
+		48EBE02F1F54062C005A355B /* ICC_SDKView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ICC_SDKView.swift; sourceTree = "<group>"; };
+		48EBE03E1F540EDE005A355B /* ICC_Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ICC_Logger.swift; path = util/ICC_Logger.swift; sourceTree = "<group>"; };
+		48EBE0401F541E29005A355B /* ICC_ScriptBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ICC_ScriptBuilder.swift; path = util/ICC_ScriptBuilder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,11 +67,27 @@
 		4864BB021F2B6FE5000C533E /* sdk */ = {
 			isa = PBXGroup;
 			children = (
-				4864BB031F2B6FE5000C533E /* sdk.h */,
+				48EBE0311F5409EF005A355B /* util */,
 				4864BB041F2B6FE5000C533E /* Info.plist */,
-				4864BB0B1F2B7013000C533E /* Logger.swift */,
+				486407411F2C13F400427C0F /* ICC_SDK.swift */,
+				486407441F2C55A900427C0F /* ICC_Callback.swift */,
+				48EBE0241F53DA9F005A355B /* ICC_AcctData.swift */,
+				48EBE0271F540089005A355B /* ICC_SDKCallbacks.swift */,
+				48EBE0291F54010B005A355B /* ICC_SDKAssistiveTouch.swift */,
+				48EBE02B1F5401A4005A355B /* ICC_SDKActivity.swift */,
+				48EBE02D1F540368005A355B /* ICC_Activity.swift */,
+				48EBE02F1F54062C005A355B /* ICC_SDKView.swift */,
 			);
 			path = sdk;
+			sourceTree = "<group>";
+		};
+		48EBE0311F5409EF005A355B /* util */ = {
+			isa = PBXGroup;
+			children = (
+				48EBE03E1F540EDE005A355B /* ICC_Logger.swift */,
+				48EBE0401F541E29005A355B /* ICC_ScriptBuilder.swift */,
+			);
+			name = util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -62,7 +97,9 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4864BB0D1F2B70E4000C533E /* Logger.swift in Headers */,
+				486407431F2C52B700427C0F /* ICC_SDK.swift in Headers */,
+				48EBE0261F53EE04005A355B /* ICC_AcctData.swift in Headers */,
+				48EBE0371F540BF1005A355B /* ICC_Callback.swift in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,7 +172,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4864BB0C1F2B7013000C533E /* Logger.swift in Sources */,
+				48EBE0391F540CEF005A355B /* ICC_SDKCallbacks.swift in Sources */,
+				48EBE03A1F540CEF005A355B /* ICC_SDKAssistiveTouch.swift in Sources */,
+				48EBE03B1F540CEF005A355B /* ICC_SDKActivity.swift in Sources */,
+				48EBE03F1F540EDE005A355B /* ICC_Logger.swift in Sources */,
+				48EBE03C1F540CEF005A355B /* ICC_Activity.swift in Sources */,
+				48EBE03D1F540CEF005A355B /* ICC_SDKView.swift in Sources */,
+				48EBE0411F541E29005A355B /* ICC_ScriptBuilder.swift in Sources */,
+				48EBE0361F540BE5005A355B /* ICC_Callback.swift in Sources */,
+				48EBE0251F53DA9F005A355B /* ICC_AcctData.swift in Sources */,
+				486407421F2C13F400427C0F /* ICC_SDK.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
