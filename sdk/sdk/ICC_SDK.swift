@@ -42,9 +42,19 @@ public class ICC_SDK : ICC_SDKCallbacks {
         // 唤醒HTML5
         self.evalJavascript(NSString(
             format:"window.ICCGAME_PASSPORT.login(%@)", self.registerCallback(callback: callback)
-            ) as String)
+        ) as String)
     }
     
+    /// 注销登录
+    ///
+    /// - Parameter callback: 回调对象
+    public func logout(callback:ICC_Callback) {
+        ICC_Logger.info("ICC_SDK.logout(ICC_Callback)")
+        // 唤醒HTML5
+        self.evalJavascript(NSString(
+            format:"window.ICCGAME_PASSPORT.logout(%@)", self.registerCallback(callback: callback)
+        ) as String)
+    }
     
     public func pushAcctData(data:ICC_AcctData, trigger:ICC_AcctData.TRIGGER){
         

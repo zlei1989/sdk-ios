@@ -12,8 +12,20 @@ import UIKit
 
 public class ICC_SDKActivity : ICC_SDKView {
 
-    let _htmlWindow:ICC_Activity = ICC_Activity()
+    private let _core:ICC_Activity = ICC_Activity()
     
+    override init() {
+        super.init()
+        let _ = super.bind(window: self._core)
+    }
+    
+    func createHtmlActivity () {
+        self._core.makeKeyAndVisible()
+    }
+    
+    func finishHtmlActivity () {
+        self._core.isHidden = true
+    }
     
     
 }

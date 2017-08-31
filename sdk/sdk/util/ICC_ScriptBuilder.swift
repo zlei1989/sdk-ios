@@ -24,5 +24,9 @@ class ICC_ScriptBuilder {
         )
     }
     
+    static func callback (key:String) -> String {
+        return String(format:"function(res){window.ICCGAME_IOS.callback(\"%@\", res);}", key)
+    }
+    
 // end class
 }

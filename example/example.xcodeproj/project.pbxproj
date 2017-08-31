@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		483058C01F55052000BF92C7 /* ICC_SDK.conf in Resources */ = {isa = PBXBuildFile; fileRef = 483058BF1F55052000BF92C7 /* ICC_SDK.conf */; };
 		4864BAE51F2B6FA6000C533E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4864BAE41F2B6FA6000C533E /* AppDelegate.swift */; };
 		4864BAE71F2B6FA6000C533E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4864BAE61F2B6FA6000C533E /* ViewController.swift */; };
 		4864BAEA1F2B6FA6000C533E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4864BAE81F2B6FA6000C533E /* Main.storyboard */; };
 		4864BAEC1F2B6FA6000C533E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4864BAEB1F2B6FA6000C533E /* Assets.xcassets */; };
-		4864BAEF1F2B6FA6000C533E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4864BAED1F2B6FA6000C533E /* LaunchScreen.storyboard */; };
 		4864BB161F2B7725000C533E /* sdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4864BB151F2B7725000C533E /* sdk.framework */; };
 		4864BB171F2B7725000C533E /* sdk.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4864BB151F2B7725000C533E /* sdk.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -31,12 +31,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		483058BF1F55052000BF92C7 /* ICC_SDK.conf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ICC_SDK.conf; sourceTree = "<group>"; };
 		4864BAE11F2B6FA6000C533E /* example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4864BAE41F2B6FA6000C533E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4864BAE61F2B6FA6000C533E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4864BAE91F2B6FA6000C533E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4864BAEB1F2B6FA6000C533E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		4864BAEE1F2B6FA6000C533E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4864BAF01F2B6FA6000C533E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4864BB151F2B7725000C533E /* sdk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = sdk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -77,8 +77,8 @@
 				4864BAE61F2B6FA6000C533E /* ViewController.swift */,
 				4864BAE81F2B6FA6000C533E /* Main.storyboard */,
 				4864BAEB1F2B6FA6000C533E /* Assets.xcassets */,
-				4864BAED1F2B6FA6000C533E /* LaunchScreen.storyboard */,
 				4864BAF01F2B6FA6000C533E /* Info.plist */,
+				483058BF1F55052000BF92C7 /* ICC_SDK.conf */,
 			);
 			path = example;
 			sourceTree = "<group>";
@@ -116,6 +116,7 @@
 				TargetAttributes = {
 					4864BAE01F2B6FA6000C533E = {
 						CreatedOnToolsVersion = 8.3.3;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -143,7 +144,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4864BAEF1F2B6FA6000C533E /* LaunchScreen.storyboard in Resources */,
+				483058C01F55052000BF92C7 /* ICC_SDK.conf in Resources */,
 				4864BAEC1F2B6FA6000C533E /* Assets.xcassets in Resources */,
 				4864BAEA1F2B6FA6000C533E /* Main.storyboard in Resources */,
 			);
@@ -170,14 +171,6 @@
 				4864BAE91F2B6FA6000C533E /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		4864BAED1F2B6FA6000C533E /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4864BAEE1F2B6FA6000C533E /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -282,10 +275,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = example/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.iccgame.sdk.example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -294,10 +290,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = example/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.iccgame.sdk.example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

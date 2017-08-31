@@ -12,13 +12,25 @@ import Foundation
 /// 输出日志
 public class ICC_Logger  {
     
-    
+    ///
     public static func debug (_ format: String, _ args: CVarArg...){
         NSLog(String(format:format, arguments:args))
     }
     
+    ///
     public static func info (_ format: String, _ args: CVarArg...) {
         NSLog(String(format:format, arguments:args))
     }
     
+    ///
+    public static func warn (_ format: String, _ args: CVarArg...){
+        NSLog(String(format:format, arguments:args))
+    }
+
+    ///
+    public static func error (_ format: String, _ args: CVarArg...) {
+        NSLog(String(format:format, arguments:args))
+    }
+
+// end class
 }

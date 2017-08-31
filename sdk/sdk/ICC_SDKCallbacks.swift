@@ -9,6 +9,7 @@
 // 引用类库
 import Foundation
 
+/// Completed
 /// 维护回调对象，对象转换为字符串直接与 JAVASCRIPT 进行交互
 public class ICC_SDKCallbacks : ICC_SDKAssistiveTouch {
 
@@ -21,8 +22,8 @@ public class ICC_SDKCallbacks : ICC_SDKAssistiveTouch {
         let key = NSUUID().uuidString;
         // 暂存队列
         self._callbacks.updateValue(callback, forKey: key)
-        ICC_Logger.info("HTML5 register callback %@", key);
-        return key;
+        ICC_Logger.info("HTML5 register callback %@", key)
+        return ICC_ScriptBuilder.callback(key: key)
     }
     
     /// 执行回调对象

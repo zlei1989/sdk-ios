@@ -34,30 +34,39 @@ class ViewController: UIViewController {
     }
     
     @IBAction func onClickLogout(_ sender: Any) {
+        ICC_SDK.getInstance().logout(callback: LogoutCallback())
     }
     
     @IBAction func onClickQuit(_ sender: Any) {
         exit(0)
     }
     
-    
-    
+    ///
     override func viewDidLoad() {
         super.viewDidLoad()
         // 初始内核
         let _:ICC_SDK  = ICC_SDK.getInstance()
     }
 
+    ///
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
-    
-
+// end class
 }
 
+/// 登录回调托管对象
 class LoginCallback: ICC_Callback {
+    public func result(resultJSON: String) {
+//        JSONSerialization
+        NSLog(resultJSON);
+    }
+}
+
+/// 注销回调托管对象
+class LogoutCallback: ICC_Callback {
     public func result(resultJSON: String) {
         NSLog(resultJSON);
     }

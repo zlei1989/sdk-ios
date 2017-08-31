@@ -12,6 +12,7 @@ import Foundation
 public class ICC_AcctData {
     
     public enum TRIGGER : Int {
+        
         case CREATE = 1
         case UPDATE = 2
         case LOGIN = 3

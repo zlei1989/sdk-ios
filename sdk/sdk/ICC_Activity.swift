@@ -10,16 +10,16 @@
 import Foundation
 import UIKit
 
+/// 定制窗口
 class ICC_Activity : UIWindow {
 
-    public init (){
-        super.init(frame: UIScreen.main.bounds)
+    /// 初始窗口大小
+    convenience init (){
+        self.init(frame:UIScreen.main.bounds)
+        self.windowLevel = UIWindowLevelAlert
+        self.backgroundColor = UIColor.clear
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder:aDecoder)
-    }
-
     //        self.window .backgroundColor = UIColor.red
     //        self.window .windowLevel = UIWindowLevelAlert
     //        self.window .makeKeyAndVisible()
