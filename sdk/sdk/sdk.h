@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <CommonCrypto/CommonDigest.h>
 
 //! Project version number for sdk.
 FOUNDATION_EXPORT double sdkVersionNumber;

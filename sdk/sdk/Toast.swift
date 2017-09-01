@@ -41,6 +41,7 @@ class ToastView : NSObject{
         /// weak
         private var _element:UIWindow
         
+        ///
         init(element:UIWindow) {
             self._element = element
             
@@ -128,7 +129,7 @@ class ToastView : NSObject{
         box.layer.add(ani, forKey: "animation")
         
         // 显示通知
-        win.makeKeyAndVisible()
+        win.isHidden = false
     }
     
     

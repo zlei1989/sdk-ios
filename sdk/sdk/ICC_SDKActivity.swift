@@ -10,22 +10,34 @@
 import Foundation
 import UIKit
 
+///
 public class ICC_SDKActivity : ICC_SDKView {
 
-    private let _core:ICC_Activity = ICC_Activity()
+<<<<<<< HEAD
+    ///
+    private var _core:ICC_Activity?
     
-    override init() {
-        super.init()
-        let _ = super.bind(window: self._core)
-    }
-    
+    /// 创建窗口
     func createHtmlActivity () {
-        self._core.makeKeyAndVisible()
+        // 对内存机制不是非常了解，为防止回收，重新实例
+        // Android 也是如此
+        self._core = ICC_Activity()
+        let _ = super.bind(window: self._core!)
+        self._core?.makeKeyAndVisible()
     }
     
+    /// 销毁窗口
     func finishHtmlActivity () {
-        self._core.isHidden = true
+        if (self._core != nil) {
+            let _ = super.unbind(window: self._core!)
+            self._core?.resignKey()
+        }
+        self._core = nil
     }
+=======
+    let _htmlWindow:ICC_Activity = ICC_Activity()
     
+>>>>>>> parent of db0f196... 20170831张磊
     
+// end class
 }

@@ -6,25 +6,16 @@
 //  Copyright © 2017年 游艺春秋网络科技（北京）有限公司. All rights reserved.
 //
 
-// 引用类库
 import Foundation
-import UIKit
-import JavaScriptCore
 
-//
+<<<<<<< HEAD
+///
+=======
+>>>>>>> parent of db0f196... 20170831张磊
 public class ICC_SDKView {
 
-    /// 网页内核
-    private let _core = ICC_WebView()
-    
-    /// 活跃状态
-    private var _isActive = false
-    
-    /// 代码队列
-    private var _evalQueus = [String]()
-    
-    /// 执行 JavaScript 代码
     func evalJavascript(_ script:String){
+<<<<<<< HEAD
         ICC_Logger.debug("ICC_SDKView.evalJavascript(%@)", script);
         // 追加执行队列
         objc_sync_enter(self._evalQueus)
@@ -36,9 +27,10 @@ public class ICC_SDKView {
     
     /// 执行队列中的 JavaScript 代码
     func evalJavascript () {
-        if (self.isActive() == false){
+        if (self.isActive() != true){
             ICC_Logger.warn("ICC_SDKView.IsActive() equal to false")
             Toast.makeText(text: ICC_Constants.SDK_TEST_STARTING, duration: Toast.LENGTH_SHORT)
+            return
         }
         ICC_Logger.debug("ICC_SDKView.evalJavascript(), Queus:%d", self._evalQueus.count)
         objc_sync_enter(self._evalQueus)
@@ -77,9 +69,11 @@ public class ICC_SDKView {
     
     /// 接触浏览器绑定
     func unbind(window:UIWindow) -> Bool {
-//        window.rootViewController?.view.remove
-        return false
+        self._core.removeFromSuperview()
+        return true
+=======
+        ICC_Logger.debug(script);
+>>>>>>> parent of db0f196... 20170831张磊
     }
 
-// end class
 }

@@ -9,15 +9,25 @@
 // 引用类库
 import Foundation
 
+///
 public class ICC_AcctData {
     
+    ///
     public enum TRIGGER : Int {
-        
+<<<<<<< HEAD
+        ///
+=======
+>>>>>>> parent of db0f196... 20170831张磊
         case CREATE = 1
+        ///
         case UPDATE = 2
+        ///
         case LOGIN = 3
+        ///
         case PAY = 4
+        ///
         case LOGOUT = 5
+        ///
         case EXIT = 6
     }
     

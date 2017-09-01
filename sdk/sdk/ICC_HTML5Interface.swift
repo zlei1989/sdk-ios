@@ -149,31 +149,26 @@ import AudioToolbox
         return ""
     }
 
-    
     /// AES 加密
     func aesDecrypt(_ seed:String, _ ciphertext:String) -> String {
         return ""
     }
 
-    
     /// 判断文件是否存在
     func fileExists(_ path:String) -> Bool {
         return FileManager.default.fileExists(atPath: path)
     }
 
-    
     /// 写入文件
     func writeFile(_ filename:String, _ contents:String) -> Bool {
         return false
     }
 
-    
     /// 追加文件
     func appendFile(_ filename:String, _ contents:String) -> Bool {
         return false
     }
 
-    
     /// 读取文件
     func readFile(_ filename:String) -> String {
         return ""
@@ -184,18 +179,15 @@ import AudioToolbox
         return false
     }
 
-    
     /// 获得文件列表
     func getFiles(_ path:String) -> [String] {
         return [""]
     }
-
     
     /// 显示窗口
     func createActivity() {
         ICC_SDK.getInstance().createHtmlActivity()
     }
-
     
     /// 隐藏窗口
     func finishActivity() {
@@ -203,139 +195,140 @@ import AudioToolbox
     }
 
     
+    class RootViewController : UIViewController {
+        
+        
+    }
+    
+    private let _viewController = RootViewController()
+    
+    private let _window = UIWindow()
+    
     /// 显示浮标按钮
     func enableAssistiveTouch(_ imageBase64PNG:String) {
+        ICC_SDK.getInstance().setAssistiveTouch(
+            imageData: Data(base64Encoded: imageBase64PNG)!
+        )
     }
 
-    
     /// 隐藏浮标按钮
     func disableAssistiveTouch() {
+        ICC_SDK.getInstance().removeAssistiveTouch()
     }
 
-    
     /// 唤起苹果支付
     func payWithApple(_ contextJSON:String) {
     }
 
-    
     /// SD存储路径
     func getExternalStoragePath() -> String {
         return self.getPackageDataPath()
     }
 
-    
     /// 获得应用地址
     func getPackageDataPath() -> String {
         return NSHomeDirectory()
     }
 
-    
     /// 当前软件名称
     func getPackageName() -> String {
         return Bundle.main.bundleIdentifier!
     }
 
-    
     /// 当前软件版本
     func getPackageVersion() -> String {
         return Bundle.main.infoDictionary!["CFBundleVersion"] as! String
     }
 
-    
     /// 获得设备名称
     func getDevice() -> String {
         return UIDevice.current.localizedModel
     }
-    
+
     /// 获得设备入网标识
     func getIMEI() -> String {
         return ""
     }
 
-    
     /// 获得安装软件列表
     func getInstalledPackages() -> [String] {
         return []
     }
 
-    
     /// 获得网卡地址
     func getMACAddress() -> String {
         return "00-00-00-00-00-00"
     }
 
-    
     /// 获得网卡地址
     func getMACAddresses() -> [String] {
         return [self.getMACAddress()]
     }
 
-    
     /// 获得网络类型
     /// 0:none, 1:wap, 2:2g, 3:3g, 4:wifi
     func getNetworkType() -> Int {
         return 1
     }
 
-    
     /// 获得序列号
     func getSerialNumber() -> String {
         return (UIDevice.current.identifierForVendor?.uuidString)!
     }
-    
+
     /// 获得Sim服务商代码
     func getSimOperator() -> String {
         return ""
 //        return CTTelephonyNetworkInfo().mobileNetworkCode
     }
-    
+
     /// 获得Sim序列号
     func getSimSerialNumber() -> String {
         return ""
 //        return CTTelephonyNetworkInfo().mobileNetworkCode
     }
-    
+
     /// 获得系统名称
     func getSystem() -> String {
         return UIDevice.current.systemVersion
     }
-    
+
     /// 获得系统版本
     func getSystemVersion() -> String {
         return UIDevice.current.systemVersion
     }
-    
+
     /// 获得SDK版本
     func getVersion() -> String {
         return ICC_Constants.SDK_VERSION
     }
-    
+
     /// 获得安装插件
     func getPlugins() -> [String] {
         return ["Apple Pay"]
     }
-    
+
     /// 唤出拨号界面
     func callPhone(_ phoneNumber:String) {
     }
-    
+
     /// 唤出短息界面
     func sendMessage(_ phoneNumber:String, _ message:String) {
     }
-    
+
     /// 唤出浏览器界面
     func openBrowser(_ url:String) {
     }
-    
+
     /// 震动
     func vibrate(_ milliseconds:String) {
 //        AudioServicesPlaySystemSound(.)
     }
-    
+
     func callback(_ key:String, _ resultJSON:String) -> Bool {
         return ICC_SDK.getInstance().executeCallback(key: key, resultJSON: resultJSON)
     }
-    
+
 // end class
 }
 

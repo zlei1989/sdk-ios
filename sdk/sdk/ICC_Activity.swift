@@ -10,19 +10,42 @@
 import Foundation
 import UIKit
 
-/// 定制窗口
 class ICC_Activity : UIWindow {
-
-    /// 初始窗口大小
-    convenience init (){
-        self.init(frame:UIScreen.main.bounds)
-        self.windowLevel = UIWindowLevelAlert
-        self.backgroundColor = UIColor.clear
+    
+    ///
+    class RootViewController : UIViewController {
     }
     
+    /// 防止窗口回收
+    private let _viewController = RootViewController()
+
+<<<<<<< HEAD
+    /// 初始窗口大小
+    convenience init () {
+        self.init(frame:UIScreen.main.bounds)
+        self.windowLevel = UIWindowLevelAlert
+        self.screen = UIScreen.main
+        // 背景透明
+        self.backgroundColor = UIColor.clear
+        self.isOpaque = false
+        // 防止回收
+//        self.rootViewController = self._viewController
+    }
+
+// end class
+=======
+    public init (){
+        super.init(frame: UIScreen.main.bounds)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder:aDecoder)
+    }
+
     //        self.window .backgroundColor = UIColor.red
     //        self.window .windowLevel = UIWindowLevelAlert
     //        self.window .makeKeyAndVisible()
     //        self.window.isHidden = true;
     
+>>>>>>> parent of db0f196... 20170831张磊
 }

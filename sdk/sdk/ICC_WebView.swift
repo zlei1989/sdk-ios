@@ -21,12 +21,12 @@ class ICC_WebView : UIWebView {
         
         ///
         var jsContext:JSContext?
+
+        ///
+        var jsConsole = JsConsole()
         
         ///
         var jsModelInterface = ICC_HTML5Interface()
-        
-        ///
-        var jsConsole = JsConsole()
         
         ///
         func webViewDidStartLoad(_ webView: UIWebView) {
@@ -68,6 +68,7 @@ class ICC_WebView : UIWebView {
         UserDefaults.standard.register(defaults: ["UserAgent" : userAgent])
         // 透明背景
         self.backgroundColor = UIColor.clear
+        self.isOpaque = false
     }
     
     /// 载入数据

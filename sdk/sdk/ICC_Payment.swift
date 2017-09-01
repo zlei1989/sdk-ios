@@ -7,6 +7,3 @@
 //
 
 import Foundation
-
-//let toast = ToastView()
-//toast.showLoadingDlg()

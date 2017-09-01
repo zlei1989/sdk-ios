@@ -7,14 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		483058BC1F54FE8300BF92C7 /* ICC_Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483058BB1F54FE8300BF92C7 /* ICC_Constants.swift */; };
-		483058BE1F55018E00BF92C7 /* ICC_WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483058BD1F55018E00BF92C7 /* ICC_WebView.swift */; };
-		483058F21F565A5400BF92C7 /* ICC_Payment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483058F11F565A5400BF92C7 /* ICC_Payment.swift */; };
-		483059011F56682800BF92C7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 483059001F56682800BF92C7 /* CoreGraphics.framework */; };
-		483059031F56BA1F00BF92C7 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483059021F56BA1F00BF92C7 /* Toast.swift */; };
-		483059051F57A71400BF92C7 /* ICC_HTML5Interface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483059041F57A71400BF92C7 /* ICC_HTML5Interface.swift */; };
 		486407421F2C13F400427C0F /* ICC_SDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486407411F2C13F400427C0F /* ICC_SDK.swift */; };
 		486407431F2C52B700427C0F /* ICC_SDK.swift in Headers */ = {isa = PBXBuildFile; fileRef = 486407411F2C13F400427C0F /* ICC_SDK.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		4872BFC81F58FB0D0041067C /* ICC_AssistiveTouch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4872BFC71F58FB0D0041067C /* ICC_AssistiveTouch.swift */; };
+		4872BFCA1F591DE00041067C /* ICC_AssistiveTouchListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4872BFC91F591DE00041067C /* ICC_AssistiveTouchListener.swift */; };
 		48EBE0251F53DA9F005A355B /* ICC_AcctData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EBE0241F53DA9F005A355B /* ICC_AcctData.swift */; };
 		48EBE0261F53EE04005A355B /* ICC_AcctData.swift in Headers */ = {isa = PBXBuildFile; fileRef = 48EBE0241F53DA9F005A355B /* ICC_AcctData.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		48EBE0361F540BE5005A355B /* ICC_Callback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486407441F2C55A900427C0F /* ICC_Callback.swift */; };
@@ -29,16 +25,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		483058BB1F54FE8300BF92C7 /* ICC_Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ICC_Constants.swift; path = util/ICC_Constants.swift; sourceTree = "<group>"; };
-		483058BD1F55018E00BF92C7 /* ICC_WebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ICC_WebView.swift; sourceTree = "<group>"; };
-		483058F01F55855600BF92C7 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
-		483058F11F565A5400BF92C7 /* ICC_Payment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ICC_Payment.swift; sourceTree = "<group>"; };
-		483059001F56682800BF92C7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		483059021F56BA1F00BF92C7 /* Toast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
-		483059041F57A71400BF92C7 /* ICC_HTML5Interface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ICC_HTML5Interface.swift; sourceTree = "<group>"; };
 		486407411F2C13F400427C0F /* ICC_SDK.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ICC_SDK.swift; sourceTree = "<group>"; };
 		486407441F2C55A900427C0F /* ICC_Callback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ICC_Callback.swift; sourceTree = "<group>"; };
 		4864BB001F2B6FE5000C533E /* sdk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = sdk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+<<<<<<< HEAD
+		4872BFC71F58FB0D0041067C /* ICC_AssistiveTouch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ICC_AssistiveTouch.swift; path = util/ICC_AssistiveTouch.swift; sourceTree = "<group>"; };
+		4872BFC91F591DE00041067C /* ICC_AssistiveTouchListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ICC_AssistiveTouchListener.swift; path = util/ICC_AssistiveTouchListener.swift; sourceTree = "<group>"; };
+=======
+		4864BB041F2B6FE5000C533E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+>>>>>>> parent of db0f196... 20170831张磊
 		48EBE0241F53DA9F005A355B /* ICC_AcctData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ICC_AcctData.swift; sourceTree = "<group>"; };
 		48EBE0271F540089005A355B /* ICC_SDKCallbacks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ICC_SDKCallbacks.swift; sourceTree = "<group>"; };
 		48EBE0291F54010B005A355B /* ICC_SDKAssistiveTouch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ICC_SDKAssistiveTouch.swift; sourceTree = "<group>"; };
@@ -54,35 +49,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				483059011F56682800BF92C7 /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		483058F31F565BCB00BF92C7 /* out-extends */ = {
-			isa = PBXGroup;
-			children = (
-				483059021F56BA1F00BF92C7 /* Toast.swift */,
-			);
-			name = "out-extends";
-			sourceTree = "<group>";
-		};
-		483058FF1F56682800BF92C7 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				483059001F56682800BF92C7 /* CoreGraphics.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		4864BAF61F2B6FE5000C533E = {
 			isa = PBXGroup;
 			children = (
 				4864BB021F2B6FE5000C533E /* sdk */,
 				4864BB011F2B6FE5000C533E /* Products */,
-				483058FF1F56682800BF92C7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,8 +74,8 @@
 		4864BB021F2B6FE5000C533E /* sdk */ = {
 			isa = PBXGroup;
 			children = (
-				483058F31F565BCB00BF92C7 /* out-extends */,
 				48EBE0311F5409EF005A355B /* util */,
+				4864BB041F2B6FE5000C533E /* Info.plist */,
 				486407411F2C13F400427C0F /* ICC_SDK.swift */,
 				486407441F2C55A900427C0F /* ICC_Callback.swift */,
 				48EBE0241F53DA9F005A355B /* ICC_AcctData.swift */,
@@ -107,10 +84,6 @@
 				48EBE02B1F5401A4005A355B /* ICC_SDKActivity.swift */,
 				48EBE02D1F540368005A355B /* ICC_Activity.swift */,
 				48EBE02F1F54062C005A355B /* ICC_SDKView.swift */,
-				483058BD1F55018E00BF92C7 /* ICC_WebView.swift */,
-				483058F01F55855600BF92C7 /* Bridging-Header.h */,
-				483058F11F565A5400BF92C7 /* ICC_Payment.swift */,
-				483059041F57A71400BF92C7 /* ICC_HTML5Interface.swift */,
 			);
 			path = sdk;
 			sourceTree = "<group>";
@@ -120,7 +93,12 @@
 			children = (
 				48EBE03E1F540EDE005A355B /* ICC_Logger.swift */,
 				48EBE0401F541E29005A355B /* ICC_ScriptBuilder.swift */,
+<<<<<<< HEAD
 				483058BB1F54FE8300BF92C7 /* ICC_Constants.swift */,
+				4872BFC71F58FB0D0041067C /* ICC_AssistiveTouch.swift */,
+				4872BFC91F591DE00041067C /* ICC_AssistiveTouchListener.swift */,
+=======
+>>>>>>> parent of db0f196... 20170831张磊
 			);
 			name = util;
 			sourceTree = "<group>";
@@ -207,21 +185,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				483058BC1F54FE8300BF92C7 /* ICC_Constants.swift in Sources */,
 				48EBE0391F540CEF005A355B /* ICC_SDKCallbacks.swift in Sources */,
+<<<<<<< HEAD
+				4872BFCA1F591DE00041067C /* ICC_AssistiveTouchListener.swift in Sources */,
 				483058F21F565A5400BF92C7 /* ICC_Payment.swift in Sources */,
+=======
+>>>>>>> parent of db0f196... 20170831张磊
 				48EBE03A1F540CEF005A355B /* ICC_SDKAssistiveTouch.swift in Sources */,
 				48EBE03B1F540CEF005A355B /* ICC_SDKActivity.swift in Sources */,
 				48EBE03F1F540EDE005A355B /* ICC_Logger.swift in Sources */,
-				483059031F56BA1F00BF92C7 /* Toast.swift in Sources */,
 				48EBE03C1F540CEF005A355B /* ICC_Activity.swift in Sources */,
 				48EBE03D1F540CEF005A355B /* ICC_SDKView.swift in Sources */,
 				48EBE0411F541E29005A355B /* ICC_ScriptBuilder.swift in Sources */,
 				48EBE0361F540BE5005A355B /* ICC_Callback.swift in Sources */,
-				483059051F57A71400BF92C7 /* ICC_HTML5Interface.swift in Sources */,
 				48EBE0251F53DA9F005A355B /* ICC_AcctData.swift in Sources */,
 				486407421F2C13F400427C0F /* ICC_SDK.swift in Sources */,
+<<<<<<< HEAD
 				483058BE1F55018E00BF92C7 /* ICC_WebView.swift in Sources */,
+				4872BFC81F58FB0D0041067C /* ICC_AssistiveTouch.swift in Sources */,
+=======
+>>>>>>> parent of db0f196... 20170831张磊
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,55 +315,39 @@
 		4864BB091F2B6FE5000C533E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)",
-				);
-				INFOPLIST_FILE = "";
+				INFOPLIST_FILE = sdk/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.iccgame.sdk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "sdk/Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		4864BB0A1F2B6FE5000C533E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)",
-				);
-				INFOPLIST_FILE = "";
+				INFOPLIST_FILE = sdk/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.iccgame.sdk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "sdk/Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
