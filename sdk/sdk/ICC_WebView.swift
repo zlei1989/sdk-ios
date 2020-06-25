@@ -12,55 +12,63 @@ import UIKit
 import JavaScriptCore
 import WebKit
 
-/// Completed
 /// 定制网页
 class ICC_WebView : UIWebView {
     
     ///
     class WvDelegate : NSObject, UIWebViewDelegate {
         
-        ///
+        /// JavaScript运行环境类
         var jsContext:JSContext?
 
-        ///
+        /// avaScript控制台类
         var jsConsole = JsConsole()
-        
-        ///
+
+        /// 实例ICC_HTML5Interface对象
         var jsModelInterface = ICC_HTML5Interface()
-        
+
+        /// WebView开始加载
         ///
+        /// - Parameter webView:
         func webViewDidStartLoad(_ webView: UIWebView) {
             self.jsContext = webView.value(forKeyPath: "documentView.webView.mainFrame.javaScriptContext") as? JSContext
             self.jsContext?.exceptionHandler = { (context:JSContext?, exception:JSValue?) in
                 ICC_Logger.error("ICC_WebView.jsContextOnExcption(%@)", (exception?.toString())!)
             }
+            #if DEBUG
             self.jsContext?.setObject(self.jsConsole, forKeyedSubscript: "console" as NSCopying & NSObjectProtocol)
+            #endif
             self.jsContext?.setObject(self.jsModelInterface, forKeyedSubscript: "ICCGAME_IOS" as NSCopying & NSObjectProtocol)
         }
-        
+
+        /// WebView加载结束
         ///
+        /// - Parameter webView:
         func webViewDidFinishLoad(_ webView: UIWebView) {
-//            let _ = self.jsContext?.evaluateScript("alert(window.ICCGAME_IOS.tip)")
-//            let _ = self.jsContext?.evaluateScript("window.ICCGAME_IOS.tip(\"hello\")")
-//            let _ = self.jsContext?.evaluateScript("throw new Error(\"test error\")")
+            // let _ = self.jsContext?.evaluateScript("alert(window.ICCGAME_IOS.tip)")
         }
     
         ///
+        
+        /// WebView加载中
+        ///
+        /// - Parameters:
+        ///   - webView: 
+        ///   - error:
         func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
             ICC_Logger.error("ICC_WebView.didFailLoadWithError(%@)", error.localizedDescription)
         }
 
-        
-        // end class
+        // End class
     }
     
     /// 托管对象（防止回收）
-    let wvDelegate = WvDelegate();
+    let wvDelegate = WvDelegate()
     
     /// 初始对象
     convenience init() {
         self.init(frame: UIScreen.main.bounds)
-        super.delegate = self.wvDelegate
+        self.delegate = self.wvDelegate
         // 执行内置脚本
         self.loadDefultData()
         // 重置代理
@@ -69,32 +77,38 @@ class ICC_WebView : UIWebView {
         // 透明背景
         self.backgroundColor = UIColor.clear
         self.isOpaque = false
+        self.isUserInteractionEnabled = true
     }
     
+    /// 释放资源
+    deinit {
+        self.delegate = nil
+    }
+
     /// 载入数据
     func loadDefultData() {
         // 载入本地配置
-        let cfg = self.getAssetJSON() as! [String : String]
+        let cfg = self.getAssetJSON() as! [String : String]?
         // 映射资源地址
         var remoteUrl:URL?
-        if ((cfg.index(forKey: "remoteUrl")) != nil){
-            remoteUrl = URL(string: cfg["remoteUrl"]!)!
+        if cfg?.index(forKey: "remoteUrl") != nil {
+            remoteUrl = URL(string: (cfg?["remoteUrl"]!)!)!
         }
-        if (remoteUrl == nil) {
+        if remoteUrl == nil {
             remoteUrl = URL(string: ICC_Constants.SDK_REMOTE_URL)!;
         }
         // 映射资源内容
         var localCode:String?
-        if ((cfg.index(forKey: "localCode")) != nil){
-            let decodedData = NSData(base64Encoded: cfg["localCode"]!, options: .ignoreUnknownCharacters)
+        if cfg?.index(forKey: "localCode") != nil {
+            let decodedData = NSData(base64Encoded: (cfg?["localCode"]!)!, options: .ignoreUnknownCharacters)
             localCode = NSString(data: decodedData! as Data, encoding: String.Encoding.utf8.rawValue) as String?
         }
         // 执行代码
-        if (localCode == nil){
-            ICC_Logger.debug("ICC_WebView.loadRequest(%@)", (remoteUrl?.absoluteString)!)
+        if localCode == nil {
+            ICC_Logger.debug("ICC_WebView.loadURL(%@)", (remoteUrl?.absoluteString)!)
             self.loadRequest(URLRequest(url: remoteUrl!))
         } else {
-            ICC_Logger.debug("ICC_WebView.loadHTMLString(String(hash:%@, size:%d), %@)", self.hash(localCode), (localCode?.characters.count)!, (remoteUrl?.absoluteString)!)
+            ICC_Logger.debug("ICC_WebView.loadHTMLString(String(hash:%@, size:%d), %@)", self.hash(localCode), (localCode?.count)!, (remoteUrl?.absoluteString)!)
             self.loadHTMLString(localCode!, baseURL: remoteUrl)
         }
     }
@@ -115,16 +129,16 @@ class ICC_WebView : UIWebView {
         }
         return obj
     }
-    
+
     /// 文本哈希
     func hash(_ val:String?) -> String {
-        if (val == nil) {
+        if val == nil {
             return "NULL"
         }
-        let str = val?.cString(using: String.Encoding.utf8);
+        let str = val?.cString(using: .utf8)
         let buf = UnsafeMutablePointer<UInt8>.allocate(capacity: 16)
         CC_MD5(str!,(CC_LONG)(strlen(str!)), buf)
-        let res = NSMutableString();
+        let res = NSMutableString()
         for i in 0 ..< 16 {
             res.appendFormat("%02x", buf[i])
         }
@@ -132,5 +146,5 @@ class ICC_WebView : UIWebView {
         return res as String
     }
     
-// end class
+    // End class
 }

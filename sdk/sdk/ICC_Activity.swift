@@ -10,42 +10,77 @@
 import Foundation
 import UIKit
 
+/// 窗口对象
 class ICC_Activity : UIWindow {
     
-    ///
-    class RootViewController : UIViewController {
-    }
+    private var _orientationObserver:Any?
     
-    /// 防止窗口回收
-    private let _viewController = RootViewController()
-
-<<<<<<< HEAD
     /// 初始窗口大小
-    convenience init () {
+    convenience init() {
         self.init(frame:UIScreen.main.bounds)
         self.windowLevel = UIWindowLevelAlert
         self.screen = UIScreen.main
         // 背景透明
         self.backgroundColor = UIColor.clear
         self.isOpaque = false
-        // 防止回收
-//        self.rootViewController = self._viewController
-    }
-
-// end class
-=======
-    public init (){
-        super.init(frame: UIScreen.main.bounds)
+        self.isUserInteractionEnabled = true
+        self.rootViewController = ThatViewController()
+        // 监听设备旋转事件
+        UIDevice.current.beginGeneratingDeviceOrientationNotifications()
+        self._orientationObserver = NotificationCenter.default.addObserver(self, selector: #selector(self.didDeviceOrientation),
+                                               name: NSNotification.Name.UIDeviceOrientationDidChange,
+                                               object: nil)
+        UIDevice.current.endGeneratingDeviceOrientationNotifications()
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder:aDecoder)
+    /// 释放资源
+    deinit {
+        if self._orientationObserver != nil {
+            UIDevice.current.beginGeneratingDeviceOrientationNotifications()
+            NotificationCenter.default.removeObserver(self._orientationObserver!)
+            UIDevice.current.endGeneratingDeviceOrientationNotifications()
+        }
+        self.rootViewController = nil
     }
-
-    //        self.window .backgroundColor = UIColor.red
-    //        self.window .windowLevel = UIWindowLevelAlert
-    //        self.window .makeKeyAndVisible()
-    //        self.window.isHidden = true;
     
->>>>>>> parent of db0f196... 20170831张磊
+    /// 设备旋转时候触发
+    func didDeviceOrientation() {
+        self.frame = self.screen.bounds
+        switch UIDevice.current.orientation {
+        case .portrait:
+            ICC_Logger.info("Device Orientation, Home to bottom")
+        case .portraitUpsideDown:
+            ICC_Logger.info("Device Orientation, Home to top")
+        case .landscapeLeft:
+            ICC_Logger.info("Device Orientation, Home to left")
+        case .landscapeRight:
+            ICC_Logger.info("Device Orientation, Home to right")
+        case .faceDown:
+            ICC_Logger.info("Device Orientation, Screen to down")
+        case .faceUp:
+            ICC_Logger.info("Device Orientation, Screen to up")
+        default:
+            NSLog("Device Orientation")
+        }
+    }
+    
+    /// 当前对象控制器
+    class ThatViewController : UIViewController {
+        
+        /// 是否自动翻转
+        override var shouldAutorotate: Bool {
+            return true
+        }
+        
+        /// 反转支持类型
+        override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+            return UIInterfaceOrientationMask.all
+        }
+        
+        /// 内存不足时候释放
+        override func didReceiveMemoryWarning() {
+//            super.didReceiveMemoryWarning();
+        }
+    }
+    // End class
 }

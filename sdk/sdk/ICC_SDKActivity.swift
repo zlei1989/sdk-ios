@@ -13,31 +13,36 @@ import UIKit
 ///
 public class ICC_SDKActivity : ICC_SDKView {
 
-<<<<<<< HEAD
-    ///
+    /// 当前活动窗口
     private var _core:ICC_Activity?
     
+    private let _lock = NSObject()
+
     /// 创建窗口
     func createHtmlActivity () {
         // 对内存机制不是非常了解，为防止回收，重新实例
         // Android 也是如此
-        self._core = ICC_Activity()
-        let _ = super.bind(window: self._core!)
-        self._core?.makeKeyAndVisible()
+        objc_sync_enter(self._lock)
+        DispatchQueue.main.async {
+            self._core = ICC_Activity()
+            let _ = super.bind(window: self._core!)
+            self._core?.makeKeyAndVisible()
+        }
+        objc_sync_exit(self._lock)
     }
-    
+
     /// 销毁窗口
     func finishHtmlActivity () {
-        if (self._core != nil) {
-            let _ = super.unbind(window: self._core!)
+        objc_sync_enter(self._lock)
+        DispatchQueue.main.async {
+            if (self._core != nil) {
+                let _ = super.unbind(window: self._core!)
+            }
             self._core?.resignKey()
+            self._core = nil
         }
-        self._core = nil
+        objc_sync_exit(self._lock)
     }
-=======
-    let _htmlWindow:ICC_Activity = ICC_Activity()
     
->>>>>>> parent of db0f196... 20170831张磊
-    
-// end class
+    // End class
 }

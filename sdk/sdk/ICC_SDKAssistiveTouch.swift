@@ -8,38 +8,91 @@
 
 // 引用类库
 import Foundation
+import UIKit
 
 ///
 public class ICC_SDKAssistiveTouch : ICC_SDKActivity {
-    
-    
+
+    /// 助手指针
     private var _core:ICC_AssistiveTouch? = nil
-   
     
+    // 回调对象
+    private let _touchListener = Listener()
+    
+    /// 系构清理
+    deinit {
+        self.removeAssistiveTouch()
+    }
+   
+    /// 设置浮标
     func setAssistiveTouch (imageData:Data) {
-        self._core = ICC_AssistiveTouch(imageData:imageData, origin: self.readPosition())
-        self._core?.setTouchListener(listener: Listener())
+        ICC_Logger.debug("ICC_SDKAssistiveTouch.setAssistiveTouch(Data)")
+        DispatchQueue.main.async {
+            self._core?.destroy()
+            self._core = ICC_AssistiveTouch(imageData:imageData, origin: self.readPosition())
+            self._core?.setTouchListener(listener: self._touchListener)
+        }
     }
     
-    
+    /// 读取浮标位置
+    ///
+    /// - Returns: 最后拖动停留位置
     func readPosition () -> CGPoint? {
+        // 读取文件
+        let filename = NSHomeDirectory() + "/Documents/ICCGAME_SDK/AssistiveTouch.pos"
+        if let data = try? NSMutableData(contentsOf: URL(fileURLWithPath: filename), options: .uncached) {
+            // 重载数据
+            var cont = CGPoint()
+            data.getBytes(&cont, range: NSMakeRange(0, MemoryLayout.size(ofValue: cont)))
+            return cont
+        }
         return nil
     }
     
-    func removeAssistiveTouch () {
-        self._core?.destory()
-        self._core = nil
+    /// 保存浮标位置
+    ///
+    /// - Parameter point: 最后拖动停留位置
+    func savePosition (point:CGPoint) {
+        let dir = NSHomeDirectory() + "/Documents/ICCGAME_SDK"
+        if FileManager.default.fileExists(atPath: dir) != true {
+            try? FileManager.default.createDirectory(at: URL.init(fileURLWithPath: dir), withIntermediateDirectories: true, attributes: nil)
+        }
+        // 构造数据
+        let data = NSMutableData()
+        var cont = point
+        data.append(&cont, length: MemoryLayout.size(ofValue: cont))
+        // 写入文件
+        let filename = dir + "/AssistiveTouch.pos"
+        try? data.write(to: URL(fileURLWithPath: filename), options: .atomic)
     }
     
+    /// 销毁浮标
+    func removeAssistiveTouch () {
+        DispatchQueue.main.async {
+            self._core?.destroy()
+            self._core = nil
+        }
+    }
+    
+    /// 监听事件处理器
     private class Listener : ICC_AssistiveTouchListener {
+        /// 触摸浮标回调
+        ///
+        /// - Parameter sender: 浮标对象
         func onTouch(sender: ICC_AssistiveTouch) {
             ICC_SDK.getInstance().evalJavascript(ICC_ScriptBuilder.dispatchEvent(type: "assistive_touch"))
         }
         
+        /// 拖动结束回调
+        ///
+        /// - Parameters:
+        ///   - sender: 浮标对象
+        ///   - origin: 停留位置
         func onMoved(sender: ICC_AssistiveTouch, origin: CGPoint) {
             ICC_SDK.getInstance().evalJavascript(ICC_ScriptBuilder.dispatchEvent(type: "assistive_moved"))
+            ICC_SDK.getInstance().savePosition(point: origin)
         }
     }
     
-    // end class
+    // End class
 }

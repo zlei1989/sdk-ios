@@ -10,12 +10,12 @@
 import Foundation
 
 /// 完成回调协议
-public protocol ICC_Callback : class {
-    
+public protocol ICC_Callback {
+
     /// 操作结束后调用此方法
     ///
     /// - Parameter resultJSON: 操作结果JSON格式字符串
     func result(resultJSON:String)
     
-// end protocol
+    // End protocol
 }

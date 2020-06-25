@@ -1,21 +1,20 @@
 //
-//  Test.swift
+//  Toast.swift
 //  sdk
 //
-//  Created by 张磊 on 2017/8/30.
+//  Created by 张磊 on 2017/9/1.
 //  Copyright © 2017年 游艺春秋网络科技（北京）有限公司. All rights reserved.
 //
 
+// 引用类库
 import Foundation
 import CoreGraphics
-
-
 import UIKit
 
 
 
 /// 临时，后期细化
-class Toast: NSObject {
+class Toast {
     
     ///
     public static let LENGTH_SHORT = CFTimeInterval(2)
@@ -24,8 +23,10 @@ class Toast: NSObject {
     public static let LENGTH_LONG = CFTimeInterval(3.5)
     
     ///
-    public static func makeText(text:String, duration:CFTimeInterval){
-        ToastView.instance.showToast(content: text, duration: duration)
+    public static func makeText(text:String, duration:CFTimeInterval) {
+        DispatchQueue.main.async {
+            ToastView.instance.showToast(content: text, duration: duration)
+        }
     }
     
     
@@ -33,7 +34,7 @@ class Toast: NSObject {
 
 
 //弹窗工具
-class ToastView : NSObject{
+class ToastView {
     
     
     class AnimDelegate: NSObject, CAAnimationDelegate {
@@ -151,6 +152,8 @@ class ToastView : NSObject{
         let group = CAAnimationGroup()
         group.animations = [scaleAnimation, opacityAnimaton]
         group.duration = duration
+        group.isRemovedOnCompletion = false
+        group.fillMode = kCAFillModeForwards
         group.repeatCount = 0
         
         return group

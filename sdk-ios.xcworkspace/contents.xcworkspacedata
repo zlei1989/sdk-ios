@@ -2,6 +2,15 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:h5wrapper/h5wrapper.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:h5app/h5app.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:example-oc/example-oc.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:sdk/sdk.xcodeproj">
    </FileRef>
    <FileRef
